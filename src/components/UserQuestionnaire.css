@@ -1,0 +1,248 @@
+.questionnaire-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #0F0F0F 0%, #1A1A1A 50%, #0F0F0F 100%);
+  color: white;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+.questionnaire-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.questionnaire-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #00D26A, #ffffff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2rem;
+}
+
+.progress-indicator {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.progress-dot {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.progress-dot.active {
+  background: linear-gradient(135deg, #00D26A, #00A855);
+  border-color: #00D26A;
+  color: white;
+  transform: scale(1.1);
+}
+
+.progress-dot.completed {
+  background: rgba(0, 210, 106, 0.3);
+  border-color: #00D26A;
+  color: #00D26A;
+}
+
+.step-info {
+  color: #6B7280;
+  font-size: 1rem;
+}
+
+.questionnaire-content {
+  margin-bottom: 3rem;
+}
+
+.step-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.step-header h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #00D26A;
+  margin-bottom: 0.5rem;
+}
+
+.step-subtitle {
+  font-size: 1.1rem;
+  color: #6B7280;
+  line-height: 1.5;
+}
+
+.question-group {
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  background: rgba(26, 26, 26, 0.6);
+  border-radius: 15px;
+  border: 1px solid rgba(0, 210, 106, 0.2);
+}
+
+.question-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.option-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(64, 64, 64, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.option-card:hover {
+  border-color: rgba(0, 210, 106, 0.5);
+  transform: translateY(-2px);
+}
+
+.option-card.selected {
+  background: linear-gradient(135deg, rgba(0, 210, 106, 0.2), rgba(0, 168, 85, 0.1));
+  border-color: #00D26A;
+  box-shadow: 0 5px 20px rgba(0, 210, 106, 0.3);
+}
+
+.option-card input[type="checkbox"] {
+  display: none;
+}
+
+.option-text {
+  flex: 1;
+  font-size: 0.95rem;
+  color: white;
+  font-weight: 500;
+}
+
+.checkmark {
+  opacity: 0;
+  color: #00D26A;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: opacity 0.3s ease;
+}
+
+.option-card.selected .checkmark {
+  opacity: 1;
+}
+
+.questionnaire-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(0, 210, 106, 0.2);
+}
+
+.nav-btn {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.prev-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.prev-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-3px);
+}
+
+.next-btn {
+  background: linear-gradient(135deg, #00D26A, #00A855);
+  color: white;
+  border: none;
+}
+
+.next-btn:hover:not(:disabled) {
+  transform: translateX(3px);
+  box-shadow: 0 5px 15px rgba(0, 210, 106, 0.3);
+}
+
+.nav-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.nav-info {
+  flex: 1;
+  text-align: center;
+}
+
+.answer-prompt {
+  color: #FFB020;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .questionnaire-container {
+    padding: 1rem;
+  }
+
+  .questionnaire-header h1 {
+    font-size: 2rem;
+  }
+
+  .progress-indicator {
+    gap: 0.5rem;
+  }
+
+  .progress-dot {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .questionnaire-navigation {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
